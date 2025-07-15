@@ -1,0 +1,86 @@
+
+/* React */
+import { memo, useEffect, useState } from 'react'
+
+/* 공통 component */
+import BlankCard from '@/components/shared/BlankCard'
+
+/* 공통 js */
+import { brNoFormatter, telnoFormatter } from '@/utils/fsms/common/util'
+
+/* 지자체 상세 정보 */
+import { mrchnetInfoInterface } from '@/app/(admin)/apv/fgsm/page'
+
+
+interface propsInterface {
+  issueDetailInfo: mrchnetInfoInterface | null
+  handleAdvancedSearch: (event: React.FormEvent) => void
+};
+
+const DetailComponent = (props: propsInterface) => {
+  const [detailResult] = useState<boolean>(false)
+  const { issueDetailInfo } = props
+
+  useEffect(() => {
+    if (detailResult) {
+    }
+  }, [detailResult])
+
+
+  return (
+    <BlankCard className="contents-card" title="가맹점 상세정보" >
+
+      {/* 테이블영역 시작 */}
+      <div className="table-scrollable">
+        <table className="table table-bordered">
+          <caption>상세 내용 시작</caption>
+          <colgroup>
+            <col style={{ width: '12%' }} />
+            <col style={{ width: '13%' }} />
+            <col style={{ width: '12%' }} />
+            <col style={{ width: '13%' }} />
+            <col style={{ width: '12%' }} />
+            <col style={{ width: '13%' }} />
+            <col style={{ width: '12%' }} />
+            <col style={{ width: '13%' }} />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th className="td-head" scope="row">
+                사업자번호
+              </th>
+              <td colSpan={3}>
+                {brNoFormatter(issueDetailInfo?.frcsBrno ?? '')}
+              </td>
+              <th className="td-head" scope="row">
+                가맹점명
+              </th>
+              <td colSpan={3}>
+                {issueDetailInfo?.frcsNm}
+              </td>
+            </tr>
+            <tr>
+              <th className="td-head" scope="row">
+                주소(소재지)
+              </th>
+              <td colSpan={3}>
+                {issueDetailInfo?.frcsAddr}
+              </td>
+              <th className="td-head" scope="row">
+                가맹점 전화 번호
+              </th>
+              <td colSpan={3}>
+                {telnoFormatter(issueDetailInfo?.frcsTelno ?? '')}
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {/* 테이블영역 끝 */}
+    </BlankCard>
+  )
+};
+
+
+export default memo(DetailComponent)

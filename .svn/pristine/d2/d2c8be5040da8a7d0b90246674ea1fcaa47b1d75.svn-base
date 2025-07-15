@@ -1,0 +1,178 @@
+import React, { useState, useEffect } from 'react';
+import { Dialog, DialogContent, Button, Box, CircularProgress, IconButton } from '@mui/material';
+import { IconX } from '@tabler/icons-react';
+import { CustomFormLabel } from '@/utils/fsms/fsm/mui-imports';
+import TableDataGrid from '@/app/components/tables/CommDataGrid2';
+import { brNoFormatter, getCommaNumber } from '@/utils/fsms/common/util';
+
+
+interface BsVhclModalByVhclNoProps {
+  open: boolean;
+  onClose: () => void;
+  onApprove: (selectedVhclNoList: string[]) => void;
+  vehicleList: { vhclNo: string; [key: string]: any }[];
+  page: number;
+  pageSize: number;
+  total: number;
+  onPageChange: (page: number, pageSize: number) => void;
+  loading?: boolean;
+  allVehicleList?: string[]; // 전체 차량 목록 prop 추가
+}
+
+const BsVhclModalByVhclNo: React.FC<BsVhclModalByVhclNoProps> = ({
+  open,
+  onClose,
+  onApprove,
+  vehicleList,
+  page,
+  pageSize,
+  total,
+  onPageChange,
+  loading = false,
+  allVehicleList = [], // 기본값 설정
+}) => {
+  const [allVhclNos, setAllVhclNos] = useState<string[]>([]); // 전체 차량 목록
+  const [uncheckedVhclNos, setUncheckedVhclNos] = useState<string[]>([]); // 체크 해제된 차량들
+  
+  // 전체 차량 목록이 전달되면 사용, 아니면 현재 페이지 기준으로 수집
+  useEffect(() => {
+    if (open) {
+      if (allVehicleList.length > 0) {
+        // 부모에서 전체 목록을 전달받은 경우
+        setAllVhclNos(allVehicleList);
+      } else if (vehicleList.length > 0) {
+        // 현재 페이지의 차량들을 전체 목록에 추가 (중복 제거)
+        const currentPageVhclNos = vehicleList.map(v => v.vhclNo);
+        setAllVhclNos(prev => {
+          const newVhclNos = currentPageVhclNos.filter(vhclNo => !prev.includes(vhclNo));
+          return [...prev, ...newVhclNos];
+        });
+      }
+    }
+  }, [open, vehicleList, allVehicleList]);
+
+  // 모달이 닫힐 때 체크 해제 목록만 초기화
+  useEffect(() => {
+    if (!open) {
+      setUncheckedVhclNos([]);
+      setAllVhclNos([]);
+    }
+  }, [open]);
+
+  const handleApprove = () => {
+    // 선택된 차량들만 전송 (전체에서 체크 해제된 것들 제외)
+    const selectedVhclNos = allVhclNos.filter(vhclNo => !uncheckedVhclNos.includes(vhclNo));
+    
+    if (selectedVhclNos.length === 0) {
+      alert('선택된 차량이 없습니다.');
+      return;
+    }
+    
+    const confirmMessage = `전체 ${total}개 차량 중 ${selectedVhclNos.length}개 차량을 확정 처리하시겠습니까?`;
+    if (confirm(confirmMessage)) {
+      onApprove(selectedVhclNos);
+    }
+  };
+
+  // row index -> vhclNo 매핑 (현재 vehicleList 기준)
+  const getTrId = (i: number) => 'tr' + i;
+  const getVhclNoByTrId = (trId: string) => {
+    const idx = parseInt(trId.replace('tr', ''), 10);
+    return vehicleList[idx]?.vhclNo;
+  };
+  // 체크박스 컬럼을 detail table과 동일하게 추가
+  const headCells = [
+    { id: 'checkbox', numeric: false, disablePadding: false, label: 'checkbox', format: 'checkbox' },
+    { id: 'bzentyNm', numeric: false, disablePadding: false, label: '업체명' },
+    { id: 'vhclNo', numeric: false, disablePadding: false, label: '차량번호' },
+    { id: 'transCnt', numeric: true, disablePadding: false, label: '거래건수' },
+    { id: 'sumFuelQty', numeric: true, disablePadding: false, label: '연료량합계' },
+    { id: 'sumAsstAmt', numeric: true, disablePadding: false, label: '보조금합계' },
+    { id: 'vhclSeNm', numeric: false, disablePadding: false, label: '면허업종' },
+    { id: 'locgovNm', numeric: false, disablePadding: false, label: '관할관청' },
+    { id: 'brno', numeric: false, disablePadding: false, label: '사업자번호' },
+    { id: 'carmdlTypeNm', numeric: false, disablePadding: false, label: '차종' },
+    { id: 'koiNm', numeric: false, disablePadding: false, label: '유종' },
+    { id: 'dlngYm', numeric: false, disablePadding: false, label: '거래년월' },
+  ];
+  // vehicleList는 이미 현재 페이지 데이터만 포함
+  const pagedRows = vehicleList.map((row) => ({ 
+    ...row, 
+    chk: !uncheckedVhclNos.includes(row.vhclNo) ? '1' : '0', // 체크 해제된 것이 아니면 체크
+    sumFuelQty: getCommaNumber(row.sumFuelQty) || row.sumFuelQty, 
+    sumAsstAmt: getCommaNumber(row.sumAsstAmt) || row.sumAsstAmt,
+    brno: brNoFormatter(row.brno) || row.brno 
+  }));
+
+  return (
+    <Dialog 
+      open={open} 
+      onClose={onClose} 
+      maxWidth="lg" 
+      fullWidth
+    >
+      <DialogContent>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+          <CustomFormLabel className="input-label-display">
+            <h2>차량별 일괄확정</h2>
+          </CustomFormLabel>
+          <Box sx={{ display: 'flex', gap: 0.5 }}>
+            <Button variant="contained" color="primary" onClick={handleApprove}>
+              확정
+            </Button>
+            <Button variant="contained" color="dark" onClick={onClose}>
+              취소
+            </Button>
+          </Box>
+          <IconButton 
+            onClick={onClose}
+            sx={{ 
+              position: 'absolute', 
+              right: 8, 
+              top: 8,
+              color: 'grey.500'
+            }}
+          >
+            <IconX />
+          </IconButton>
+        </Box>
+        
+        {loading ? (
+          <Box display="flex" justifyContent="center" alignItems="center" minHeight={200}>
+            <CircularProgress />
+          </Box>
+        ) : (
+          <TableDataGrid
+            headCells={headCells}
+            rows={pagedRows}
+            totalRows={total}
+            loading={false}
+            onPaginationModelChange={(newPage, newPageSize) => {
+              onPageChange(newPage, newPageSize);
+            }}
+            pageable={{ pageNumber: page, pageSize, totalPages: Math.ceil(total / pageSize) }}
+            paging={true}
+            onCheckChange={(ids) => {
+              const currentPageVhclNos = pagedRows.map(v => v.vhclNo);
+              const checkedVhclNos = ids.map(getVhclNoByTrId).filter((v): v is string => !!v);
+              
+              // 현재 페이지에서 체크되지 않은 차량들 계산
+              const currentPageUnchecked = currentPageVhclNos.filter(vhclNo => !checkedVhclNos.includes(vhclNo));
+              
+              // 현재 페이지의 체크 상태만 업데이트 (다른 페이지는 유지)
+              setUncheckedVhclNos(prev => [
+                // 다른 페이지의 체크 해제된 차량들 유지
+                ...prev.filter(v => !currentPageVhclNos.includes(v)),
+                // 현재 페이지에서 체크 해제된 차량들 추가
+                ...currentPageUnchecked
+              ]);
+            }}
+            caption={'차량별 일괄확정 목록'}
+          />
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+export default BsVhclModalByVhclNo;
