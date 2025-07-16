@@ -38,6 +38,7 @@ import DayoffCarReserveModal from './_components/DayoffCarReserveModal'
 import DayoffMemoModal from './_components/DayoffMemoModal'
 import DayoffGroupDetailModal from './_components/DayoffGroupDetailModal'
 import ModalCalendar from './_components/ModalCalendar'
+import { useTabHistory } from '@/utils/fsms/common/useTabHistory'
 
 const BCrumb = [
   {
@@ -259,6 +260,9 @@ const DataList = () => {
       },
     },
   ]
+  
+  const { tabs: historyTabs, remove: removeHistory, removeAll: clearHistory } = useTabHistory()
+
   const router = useRouter() // 화면이동을 위한객체
   const querys = useSearchParams() // 쿼리스트링을 가져옴
   const allParams: listParamObj = Object.fromEntries(querys.entries()) // 쿼리스트링 값을 오브젝트 형식으로 담음

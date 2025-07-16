@@ -66,18 +66,7 @@ const Header = () => {
 
   /** 토큰 기반 로그인 정보 호출 및 할당 */
   useEffect(() => {
-    const fetchAuthInfo = async () => {
-      const authInfo = await getAuthInfo()
-
-      setAuthStatus(authInfo.authSttus ?? {})
-      setIsLoggedIn(authInfo.isLoggedIn)
-      setUserAuthInfo(authInfo.authSttus)
-      if (authInfo.isLoggedIn) {
-        //로그인 되어있을때만 알림 호출
-        fetchData()
-      }
-    }
-    fetchAuthInfo()
+    
   }, [])
 
   useEffect(() => {
