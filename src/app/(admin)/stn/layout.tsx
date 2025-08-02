@@ -9,7 +9,7 @@ export default function StnLayout({ children }: { children: ReactNode }) {
 
   return (
     <div style={{ display: 'flex', height: '100vh' }}>
-      <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column' ,width: '100%'}}>
         <HistorySlider
           items={tabs}
           onRemove={remove}
