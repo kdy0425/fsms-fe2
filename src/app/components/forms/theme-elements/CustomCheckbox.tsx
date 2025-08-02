@@ -11,7 +11,7 @@ const BpIcon = styled('span')(({ theme }) => ({
     theme.palette.mode === 'dark'
       ? `0 0 0 1px ${theme.palette.grey[200]}`
       : `inset 0 0 0 1px ${theme.palette.grey[300]}`,
-  backgroundColor: 'transparent',
+  backgroundColor: '#fff',
 
   '.Mui-focusVisible &': {
     outline:

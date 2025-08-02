@@ -96,7 +96,8 @@ const NavListing = () => {
       <a href="/stn/bscm">stn/bscm</a>&nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="/stn/cnc">stn/cnc</a>&nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="/stn/di">stn/di</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-      <a href="/stn/disi">stn/disi</a>
+      <a href="/stn/disi">stn/disi</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="/stn/report">보고서 생성 팝업</a>
 
       {menuItems.map((item) => {
         if (item.children) {

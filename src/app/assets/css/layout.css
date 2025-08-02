@@ -1279,6 +1279,10 @@ input::placeholder,
 .MuiCheckbox-root span {
   box-shadow: inset 0 0 0 1px #b7b7b7;
 }
+.MuiRadio-root input:checked + span,
+.MuiCheckbox-root input:checked + span {
+  box-shadow: none;
+}
 
 .MuiCard-root,
 .contents-card {
@@ -1498,7 +1502,9 @@ code {
   padding-left: 20px;
 
 }
-
+.input-label-display {
+  font-size:16px;font-weight:700;
+}
 /* 검색영역 */
 .sch-filter-box {
   padding: 5px 30px;
@@ -3790,3 +3796,8 @@ input[type='number'] {
 .history_tabs .history_buttons .history_prev{background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 13 5 8l5-5' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' opacity='.5'/%3E%3C/svg%3E");}
 .history_tabs .history_buttons .history_next{background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.5'%3E%3Cpath d='M6 13L11 8L6 3' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E%0A");}
 .history_tabs .history_buttons .history_remove_all{background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m12 4.5-8 8M4 4.5l8 8' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+
+.form-row{display: flex;flex-direction: column;gap: 16px;}
+.form-row{}
+.dropdown-button{background-color: #E5EBF0;border:0;color:#2A3547;font-size:14px;height: 28px;padding:0 8px;border-radius: 4px;}
+.dropdown-button:active{background-color: #ADB4C1;}
