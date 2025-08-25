@@ -575,7 +575,7 @@ const TableDataGrid: React.FC<ServerPaginationGridProps> = ({
                                   color:
                                     row.chkVal === 'R'
                                       ? (row['color'] ?? 'red')
-                                      : (row['color'] ?? 'black'),
+                                      : (row['color'] ?? '#555'),
                                   whiteSpace: 'nowrap',
                                   ...headCell.style,
                                 }}
@@ -606,7 +606,7 @@ const TableDataGrid: React.FC<ServerPaginationGridProps> = ({
                                 colSpan={getColspan(row, headCells, i)}
                                 className={headCell.align}
                                 style={{
-                                  color: row['color'] ?? 'black',
+                                  color: row['color'] ?? '#555',
                                   whiteSpace: 'nowrap',
                                   ...headCell.style,
                                 }}

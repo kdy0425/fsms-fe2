@@ -124,13 +124,21 @@ const Header = () => {
 
         <Stack spacing={1} direction="row" alignItems="center">
           {/* 로그인/프로필 분기처리 */}
-          {isLoggedIn ? (
+          {!isLoggedIn ? (
+          //퍼블 확인용 임시 주석 {!isLoggedIn ? (
             <>
               {/* <UserProfile
                 userNm={authStatus.userNm}
                 authorities={authStatus.authorities}
               /> */}
               <Stack spacing={1} className="global-link-wrapper">
+                <button type="button" className='top-btn btn-blue-contain'>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.1068 1C10.1068 1 8.3775 4.96798 3 4.11121V12.1577C3.13819 12.6789 2.51832 16.9074 10.1068 19C17.6953 16.9074 17.0755 12.6789 17.2136 12.1577V4.11121C11.8361 4.96798 10.1068 1 10.1068 1Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.44922 10.5621L9.88133 12.5915L13.1268 8.76172" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  부정수급방지시스템
+                </button>
                 <span className="username-zone">
                   <span className="username">{authStatus.userNm}</span>님이
                   로그인하셨습니다.

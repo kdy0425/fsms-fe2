@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 import PageContainer from '@/components/container/PageContainer'
 
 import SearchRadioModal from './ReportModal/ReportModal'
+import SubsidyModal from './SubsidyModal/SubsidyModal'
 
 const DataList = () => {
     const [openModal, setOpenModal] = useState<boolean>(false)
@@ -15,9 +16,21 @@ const DataList = () => {
             <button onClick={() => setOpenModal(true)}>보고서 생성 팝업 열기</button>
 
             <SearchRadioModal
-                      isOpen={openModal}
-                      setClose={() => setOpenModal(false)}
-                    />
+                isOpen={openModal}
+                setClose={() => setOpenModal(false)}
+            />
+
+
+            <br/> 
+
+
+            <button onClick={() => setOpenModal(true)}>유가보조금 지급현황 팝업 열기</button>
+
+            <SubsidyModal
+                isOpen={openModal}
+                setClose={() => setOpenModal(false)}
+            />
+
         </PageContainer>
     )
 }

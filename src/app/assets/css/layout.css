@@ -81,7 +81,7 @@ pre {
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
-  gap: 20px;
+  gap: 25px;
 }
 .username-zone,
 .global-link-wrapper * {
@@ -95,7 +95,6 @@ pre {
   padding: 8px;
 }
 .global-link-wrapper .favorites-group {
-  padding: 5px 15px 5px 0px;
 }
 .global-link-wrapper .username-zone > a {
   display: inline;
@@ -109,6 +108,7 @@ pre {
 }
 .global-link-wrapper .top-btn {
   padding-left: 36px;
+  padding-right:0;
   color: #2a3547;
 }
 .global-link-wrapper .top-btn.btn-sitemap {
@@ -135,7 +135,12 @@ pre {
   background: url(../images/common/icon/ico_top_btn_alarm.png) no-repeat 10px
     50%;
 }
-
+.global-link-wrapper .top-btn.btn-blue-contain {
+  background-color: #0848FF;color:#fff;height:33px;border-radius:5px;padding:0 10px;border:0;line-height: 33px;;display: flex;align-items: center;gap:5px;
+}
+.global-link-wrapper .top-btn.btn-blue-contain:hover {
+  background-color: #003feb;
+}
 .global-link-wrapper .username-zone {
   display: flex;
   align-items: center;
@@ -834,6 +839,9 @@ drawer 팝업 시작
   padding: 40px 40px 0 40px;
   font-size: 30px;
 }
+.custom-modal-box-title  + h2{
+  margin-top:33px;
+}
 .custom-modal-box-ex {
   padding: 5px 40px;
   font-size: 16px;
@@ -1457,6 +1465,9 @@ code {
 .search-button-group {
   text-align: center;
 }
+.button-align{
+  display: inline-flex;gap:4px;
+}
 .table-bottom-button-group {
   margin-top: 20px;
   text-align: right;
@@ -1467,6 +1478,7 @@ code {
   gap: 4px;
   max-width: 100%;
 }
+
 .table-bottom-button-group .button-right-align {
   margin-left: auto;
   display: inline-flex;
@@ -1496,6 +1508,9 @@ code {
   padding-left: 20px;
   background: url(../images/common/bu/bu_title_4depth.png) no-repeat 0 50%;
 }
+.input-label-display.normal{
+  font-weight:400;
+}
 .label-display {
   white-space: nowrap;
   margin: 0px 6px;
@@ -1511,6 +1526,12 @@ code {
   border-radius: 10px;
   background: #edf1f5;
   border: 1px solid #d2d8dd;
+}
+.sch-filter-box.sm {
+  padding:0 20px;
+}
+.sch-filter-box.sm .form-inline,.sch-filter-box.sm  .filter-form {
+  margin:11px 0;
 }
 .sch-filter-box > .form-list > .form-inline {
   padding-bottom: 6px;
@@ -1825,7 +1846,7 @@ code {
   height: 34px;
   font-size: 16px;
   padding: 0px 0px 10px 24px;
-  background: url(../images/common/bu/bu_title_4depth.png) no-repeat 0 6px;
+  background: url(../images/common/bu/bu_title_4depth.png) no-repeat 0 5px;
 }
 
 .page-title-1depth {
@@ -2367,6 +2388,9 @@ DataGrid 시작
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
+}
+.data-grid-top-toolbar + .popup_inner_scroll{
+  margin-top:33px;
 }
 .data-grid-top-toolbar .data-grid-search-count {
   font-weight: 700;
@@ -3807,3 +3831,10 @@ input[type='number'] {
 .form-row{}
 .dropdown-button{background-color: #E5EBF0;border:0;color:#2A3547;font-size:14px;height: 28px;padding:0 8px;border-radius: 4px;}
 .dropdown-button:active{background-color: #ADB4C1;}
+
+.bar_chart_area{position: relative;margin-top:13px}
+.bar_chart_area .legends{position: absolute;right:0;top:-54px;background-color: #F7F9FA;display: flex;border-radius:8px;height:34px;align-items: center;padding:0 12px;gap:20px;}
+.bar_chart_area .legends div{display: flex;align-items: center;gap:5px;font-size:14px;}
+.bar_chart_area .legends .color{width:12px;height:12px;border-radius:2px;}
+.popup_inner_scroll{max-height:calc(100vh - 215px);overflow-y: auto;}
+
