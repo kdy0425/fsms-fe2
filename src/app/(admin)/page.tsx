@@ -1507,9 +1507,20 @@ export default function Main() {
                         )}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="oilps-map-info-box green">
-                      <a className="oilps-info-title">탱크용량</a>
+                  <div className='oilps-map-info-box-col-group blue_box half'>
+                    <div className="oilps-map-title">
+                        <h2>
+                          <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" > <g clipPath="url(#clip0_237_5259)"> <path d="M11.9859 1C11.9859 1 9.8723 5.84975 3.2998 4.80259V14.6372C3.4687 15.2742 2.71108 20.4424 11.9859 23C21.2608 20.4424 20.5031 15.2742 20.672 14.6372V4.80259C14.0995 5.84975 11.9859 1 11.9859 1Z" stroke="#0848FF" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /> <path d="M8.73779 12.6868L11.7104 15.1672L15.677 10.4863" stroke="#0848FF" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /> </g> <defs> <clipPath id="clip0_237_5259"> <rect width={24} height={24} fill="white" /> </clipPath> </defs> </svg>
+                          부정수급방지시스템
+                        </h2>
+                        <div className="description">
+                          부정수급방지시스템으로 이동합니다.
+                        </div>
+                    </div>
+                    <div className="oilps-map-info-box blue">
+                      <div className="oilps-info-title">탱크용량</div>
                       <div
                         className="oilps-info-con"
                         style={{ display: 'flex' }}
@@ -1523,9 +1534,8 @@ export default function Main() {
                           </p>
                       </div>
                     </div>
-
-                    <div className="oilps-map-info-box green">
-                      <a className="oilps-info-title">의심거래</a>
+                    <div className="oilps-map-info-box blue">
+                      <div className="oilps-info-title">의심거래</div>
                       <div
                         className="oilps-info-con"
                         style={{ display: 'flex' }}
@@ -1557,8 +1567,8 @@ export default function Main() {
                         </p>
                       </div>
                     </div>
-
                   </div>
+
                 </div>
               </div>
             </div>
@@ -1576,6 +1586,21 @@ export default function Main() {
                 </h1>
                 <div className="contents-box-con">
                   <ul className="main-info-board-list">
+                    <li>
+                      <div
+                        className="main-info-board-inner"
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <span className="main-notice-link-title">
+                          [긴급][화물]테스트 공지사항입니다.
+                        </span>
+                        <p className="main-notice-link-date">
+                          <span className="info-month-date">
+                            2025.08.14
+                          </span>
+                        </p>
+                      </div>
+                    </li>
                     <li>
                       <div
                         className="main-info-board-inner"

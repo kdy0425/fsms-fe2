@@ -326,6 +326,23 @@ Last update : 2024-09-10
 .oilps-map-info-box-group {
   width: 100%;
 }
+.oilps-map-info-box-col-group.blue_box{
+  border:2px solid #0848FF;border-radius:10px;padding:18px;display: flex;flex-wrap: wrap;gap:10px 20px;
+}
+.oilps-map-title{
+  display: flex;justify-content: space-between;align-items: center;width:100%;
+
+}
+.oilps-map-title h2{
+  display: flex;align-items: center;gap:5px;color:#0848FF;font-size:20px;font-weight:700;margin:0;
+}
+.oilps-map-title .description{
+  color:#2A3547;font-size:16px;
+}
+.oilps-map-info-box-col-group.half .oilps-map-info-box{
+  width: calc(50% - 10px);
+  margin-bottom: 0px;
+}
 .oilps-map-info-box {
   display: flex;
   align-items: center;
@@ -338,8 +355,11 @@ Last update : 2024-09-10
   padding: 10px 15px 10px 10px;
   margin-bottom: 10px;
 }
-.oilps-map-info-box.green{
-  background-color: #F2F8F7;border-color: #DBDFDE;
+.oilps-map-info-box.blue{
+  background-color: #F8FCFF;border-color: #C6D2E7;padding:0 0 10px;display: block;text-align: center;
+}
+.oilps-map-info-box.blue .oilps-info-con{
+  justify-content: center;
 }
 .oilps-info-title {
   border-radius: 10px;
@@ -351,8 +371,8 @@ Last update : 2024-09-10
   width: 56px;
   background-color: #232647;
 }
-.oilps-map-info-box.green .oilps-info-title{
-  background-color: #007F68;
+.oilps-map-info-box.blue .oilps-info-title{
+  background-color: #0848FF;height:34px;border-radius:10px 10px 0 0;margin:-1px -1px 13px;width: auto;
 }
 .oilps-map-info-box a.oilps-info-title{
   background-position: right 10px center;background-repeat: no-repeat;cursor: pointer;
@@ -530,7 +550,7 @@ Last update : 2024-09-10
 .oilps-map-info-box-col-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px 20px;
   margin-top: 20px;
 }
 .oilps-map-info-box-col-group .oilps-map-info-box {
@@ -547,7 +567,6 @@ Last update : 2024-09-10
   width: 100%;
   padding: 4px 0px;
 }
-
 .box-auto {
   flex: 1 1 auto;
 }
