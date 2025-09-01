@@ -82,6 +82,7 @@ pre {
   justify-content: flex-end;
   flex-direction: row;
   gap: 25px;
+  white-space: nowrap;
 }
 .username-zone,
 .global-link-wrapper * {
@@ -140,6 +141,12 @@ pre {
 }
 .global-link-wrapper .top-btn.btn-blue-contain:hover {
   background-color: #003feb;
+}
+.global-link-wrapper .top-btn.btn-gradient-contain {
+  background: linear-gradient(90.35deg, #009F97 8.53%, #3683D7 113.27%), linear-gradient(92.66deg, #009F97 2.24%, #3683D7 98.02%);color:#fff;height:33px;border-radius:5px;padding:0 10px;border:0;line-height: 33px;;display: flex;align-items: center;gap:5px;
+}
+.global-link-wrapper .top-btn.btn-gradient-contain:hover {
+  background: linear-gradient(90.35deg, #008a83 8.53%, #2c75c2 113.27%), linear-gradient(92.66deg, #008a83 2.24%, #2c75c2 98.02%);
 }
 .global-link-wrapper .username-zone {
   display: flex;

@@ -8,11 +8,11 @@ interface BreadCrumbType {
   items?: any[];
   title: string;
   children?: JSX.Element;
+  className?: string;
 }
 
-const Breadcrumb = ({ subtitle, items, title, children }: BreadCrumbType) => (
-
-    <div className="category-wrapper main-category-wrapper">
+const Breadcrumb = ({ subtitle, items, title, children, className }: BreadCrumbType) => (
+    <div className={`category-wrapper main-category-wrapper ${className}`}>
       <p>{title}</p>
       <Breadcrumbs
         separator={
@@ -39,7 +39,6 @@ const Breadcrumb = ({ subtitle, items, title, children }: BreadCrumbType) => (
           : ""}
       </Breadcrumbs>
     </div>
-
 );
 
 export default Breadcrumb;
