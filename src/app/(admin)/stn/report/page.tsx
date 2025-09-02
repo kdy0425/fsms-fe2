@@ -10,25 +10,26 @@ import SearchRadioModal from './ReportModal/ReportModal'
 import SubsidyModal from './SubsidyModal/SubsidyModal'
 
 const DataList = () => {
-    const [openModal, setOpenModal] = useState<boolean>(false)
+    const [openReportModal, setOpenReportModal] = useState<boolean>(false)
+    const [openOilModal, setOpenOilModal] = useState<boolean>(false)
     return (
         <PageContainer title="보고서 생성" description="보고서 생성">
-            <button onClick={() => setOpenModal(true)}>보고서 생성 팝업 열기</button>
+            <button onClick={() => setOpenReportModal(true)}>보고서 생성 팝업 열기</button>
 
             <SearchRadioModal
-                isOpen={openModal}
-                setClose={() => setOpenModal(false)}
+                isOpen={openReportModal}
+                setClose={() => setOpenReportModal(false)}
             />
 
 
             <br/> 
 
 
-            <button onClick={() => setOpenModal(true)}>유가보조금 지급현황 팝업 열기</button>
+            <button onClick={() => setOpenOilModal(true)}>유가보조금 지급현황 팝업 열기</button>
 
             <SubsidyModal
-                isOpen={openModal}
-                setClose={() => setOpenModal(false)}
+                isOpen={openOilModal}
+                setClose={() => setOpenOilModal(false)}
             />
 
         </PageContainer>
