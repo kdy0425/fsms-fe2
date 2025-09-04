@@ -31,18 +31,13 @@ import {
 } from 'recharts'
 
 const rows = [
-  { month: '2025-01', truck: 12000, bus: 3500, taxi: 5100 },
-  { month: '2025-02', truck: 12000, bus: 3600, taxi: 5200 },
-  { month: '2025-03', truck: 12000, bus: 3400, taxi: 5300 },
-  { month: '2025-04', truck: 12000, bus: 3700, taxi: 4900 },
-  { month: '2025-05', truck: 12000, bus: 3550, taxi: 5000 },
-  { month: '2025-06', truck: 12000, bus: 3600, taxi: 5150 },
-  { month: '2025-07', truck: 12000, bus: 3650, taxi: 5250 },
-  { month: '2025-08', truck: 12000, bus: 3680, taxi: 5100 },
-  { month: '2025-09', truck: 12000, bus: 3620, taxi: 4950 },
-  { month: '2025-10', truck: 13100, bus: 3590, taxi: 5050 },
-  { month: '2025-11', truck: 13300, bus: 3700, taxi: 5080 },
-  { month: '2025-12', truck: 13500, bus: 3750, taxi: 5120 },
+  { month: '2025-01', truck: 12000, bus: 3500, taxi: 5100 ,aaa: 5100 ,bbb: 5100 ,ccc: 5100 },
+  { month: '2025-02', truck: 12000, bus: 3600, taxi: 5200 ,aaa: 5100 ,bbb: 5100 ,ccc: 5100  },
+  { month: '2025-03', truck: 12000, bus: 3400, taxi: 5300 ,aaa: 5100 ,bbb: 5100 ,ccc: 5100  },
+  { month: '2025-04', truck: 12000, bus: 3700, taxi: 4900 ,aaa: 5100 ,bbb: 5100 ,ccc: 5100  },
+  { month: '2025-05', truck: 12000, bus: 3550, taxi: 5000 ,aaa: 5100 ,bbb: 5100 ,ccc: 5100  },
+  { month: '2025-06', truck: 12000, bus: 3600, taxi: 5150 ,aaa: 5100 ,bbb: 5100 ,ccc: 5100  },
+  { month: '2025-07', truck: 12000, bus: 3650, taxi: 5250 ,aaa: 5100 ,bbb: 5100 ,ccc: 5100  },
 ];
 
 const chartData = rows.map(r => ({
@@ -50,6 +45,9 @@ const chartData = rows.map(r => ({
   truck: Number(r.truck),
   bus:   Number(r.bus),
   taxi:  Number(r.taxi),
+  aaa:  Number(r.aaa),
+  bbb:  Number(r.bbb),
+  ccc:  Number(r.ccc),
 }));
 const headCells: HeadCell[] = [
   { id: 'month', numeric: false, disablePadding: false, label: '월',   style: { width: '25%' } },
@@ -80,6 +78,9 @@ export default function SubsidyModal(props: FormModalProps) {
             .print_area{overflow: visible !important;}
             .print_area, .print_area * {
                 visibility: visible !important;
+            }
+            .page-title-4depth, .sch-filter-box, .data-grid-wrapper .MuiTableHead-root .MuiTableRow-root .MuiTableCell-root{
+            -webkit-print-color-adjust:exact;
             }
             @page {
                 size: A4;
@@ -168,12 +169,18 @@ export default function SubsidyModal(props: FormModalProps) {
                             <Bar dataKey="truck" name="화물" fill="#31C09C" />
                             <Bar dataKey="bus"   name="버스" fill="#FE7E56" />
                             <Bar dataKey="taxi"  name="택시" fill="#5F8EE2" />
+                            <Bar dataKey="aaa"  name="aaa" fill="#fbb3fd" />
+                            <Bar dataKey="bbb"  name="bbb" fill="#9577d7" />
+                            <Bar dataKey="ccc"  name="ccc" fill="#e471b8" />
                         </BarChart>
                         </ResponsiveContainer>
                         <div className="legends">
-                            <div><span className='color' style={{ backgroundColor: "#31C09C" }}></span> 화물</div>
-                            <div><span className='color' style={{ backgroundColor: "#FE7E56" }}></span> 버스</div>
-                            <div><span className='color' style={{ backgroundColor: "#5F8EE2" }}></span> 택시</div>
+                            <div><span className='color' style={{ border: "6px solid #31C09C" }}></span> 화물</div>
+                            <div><span className='color' style={{ border: "6px solid #FE7E56" }}></span> 버스</div>
+                            <div><span className='color' style={{ border: "6px solid #5F8EE2" }}></span> 택시</div>
+                            <div><span className='color' style={{ border: "6px solid #fbb3fd" }}></span> aaa</div>
+                            <div><span className='color' style={{ border: "6px solid #9577d7" }}></span> bbb</div>
+                            <div><span className='color' style={{ border: "6px solid #e471b8" }}></span> ccc</div>
                         </div>
                     </div>
                 </Box>
