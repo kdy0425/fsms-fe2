@@ -3845,3 +3845,8 @@ input[type='number'] {
 .bar_chart_area .legends .color{width:12px;height:12px;border-radius:2px;}
 .popup_inner_scroll{max-height:calc(100vh - 215px);overflow-y: auto;}
 
+.check_group{display: flex;flex-wrap: wrap;gap:10px 24px;background-color: #E2E8EE;border-radius: 4px;padding:6px 12px;}
+.check_item{color:#2A3547;font-size:14px;display: flex;align-items: center;padding:1px 0;cursor: pointer;line-height:1.5;}
+.check_item input[type="checkbox"]{width:20px;height:20px;border-radius: 4px;background-color: #fff;border:1px solid #ADB4C1;border-radius: 4px;margin:0 6px 0 0;-webkit-appearance: none;-moz-appearance: none;appearance: none;}
+.check_item input[type="checkbox"]:checked{border:0;background-color: #0848FF;background-position: center center;background-repeat: no-repeat;background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' fill='none'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='m12 1.5-6.581 7L2 4.864'/%3E%3C/svg%3E");}
+

@@ -25,7 +25,7 @@ import { toQueryString } from '@/utils/fsms/utils'
 // components
 import CustomFormLabel from '@/components/forms/theme-elements/CustomFormLabel'
 import CustomTextField from '@/components/forms/theme-elements/CustomTextField'
-
+import CustomCheckbox from '@/app/components/forms/theme-elements/CustomCheckbox'
 import TableDataGrid from '@/app/components/tables/CommDataGrid2'
 
 
@@ -598,16 +598,26 @@ const DataList = () => {
                 className="input-label-display"
                 htmlFor="ft-vhclNo"
               >
-                차량번호
+                구분
               </CustomFormLabel>
-              <CustomTextField
-                name="vhclNo"
-                value={params.vhclNo ?? ''}
-                onChange={handleSearchChange}
-                type="text"
-                id="ft-vhclNo"
-                fullWidth
-              />
+              <div className="check_group">
+                <label className='check_item'>
+                  <input type="checkbox" />
+                  전체
+                </label>
+                <label className='check_item'>
+                  <input type="checkbox" />
+                  유종별
+                </label>
+                <label className='check_item'>
+                  <input type="checkbox" />
+                  차종별
+                </label>
+                <label className='check_item'>
+                  <input type="checkbox" />
+                  톤수별
+                </label>
+              </div>
             </div>
           </div>
         </Box>
