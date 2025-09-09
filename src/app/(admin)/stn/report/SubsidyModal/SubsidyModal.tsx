@@ -82,6 +82,7 @@ export default function SubsidyModal(props: FormModalProps) {
             .page-title-4depth, .sch-filter-box, .data-grid-wrapper .MuiTableHead-root .MuiTableRow-root .MuiTableCell-root{
             -webkit-print-color-adjust:exact;
             }
+            .popup_inner_scroll,.MuiPaper-root{max-height:none !important;}
             @page {
                 size: A4;
                 margin: 12mm;
@@ -145,6 +146,54 @@ export default function SubsidyModal(props: FormModalProps) {
                             <strong>서울특별시</strong>
                         </div>
                     </div>
+                </Box>
+
+                <Box style={{ marginTop: 20 }}>
+                    <TableDataGrid
+                        headCells={headCells}
+                        rows={rows}
+                        loading={false}
+                    />
+                </Box>
+
+                <Box style={{ marginTop: 20 }}>
+                    <TableDataGrid
+                        headCells={headCells}
+                        rows={rows}
+                        loading={false}
+                    />
+                </Box>
+
+                <Box style={{ marginTop: 20 }}>
+                    <TableDataGrid
+                        headCells={headCells}
+                        rows={rows}
+                        loading={false}
+                    />
+                </Box>
+
+                <Box style={{ marginTop: 20 }}>
+                    <TableDataGrid
+                        headCells={headCells}
+                        rows={rows}
+                        loading={false}
+                    />
+                </Box>
+
+                <Box style={{ marginTop: 20 }}>
+                    <TableDataGrid
+                        headCells={headCells}
+                        rows={rows}
+                        loading={false}
+                    />
+                </Box>
+
+                <Box style={{ marginTop: 20 }}>
+                    <TableDataGrid
+                        headCells={headCells}
+                        rows={rows}
+                        loading={false}
+                    />
                 </Box>
 
                 <Box style={{ marginTop: 20 }}>
